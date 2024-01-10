@@ -1,10 +1,17 @@
 <script>
-import SingleCard from './SingleCard.vue'
+import SingleCard from './SingleCard.vue';
+import { store } from '../store';
+
 
 export default {
     name: 'CardsList',
     components: {
         SingleCard
+    },
+    data() {
+        return {
+            store,
+        }
     }
 }
 
@@ -13,7 +20,9 @@ export default {
 <template>
     <section class="container">
         <div class="row">
-            <SingleCard />
+            <div v-for="card in store.cardsList" class="col">
+                <SingleCard />
+            </div>
         </div>
     </section>
 </template>

@@ -1,6 +1,9 @@
 <script>
 export default {
     name: 'SingleCard',
+    props: {
+        info: Object
+    }
 }
 
 </script>
@@ -8,10 +11,10 @@ export default {
 <template>
     <div class="card">
 
-        <img src="https://images.ygoprodeck.com/images/cards/34541863.jpg" alt="Descrizione carta">
+        <img :src="info.card_images.image_url" :alt="info.name">
         <div class="categoria">
-            <h3>nome personaggio</h3>
-            <span>Archetype</span>
+            <h3>{{ info.name }}</h3>
+            <span>{{ info.archetype }}</span>
         </div>
 
     </div>

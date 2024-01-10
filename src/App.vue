@@ -1,17 +1,20 @@
 <script >
 // import HelloWorld from './components/HelloWorld.vue'
 import AppHeader from './components/AppHeader.vue'
+import CardsList from './components/CardsList.vue'
 
 export default {
   components: {
-    AppHeader
+    AppHeader,
+    CardsList,
   }
 }
 </script>
 
 <template>
-  <AppHeader />
+  <AppHeader message="Yu-Gi-Oh! Api" />
   <main>
+    <CardsList />
 
   </main>
 </template>

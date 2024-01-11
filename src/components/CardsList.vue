@@ -1,12 +1,15 @@
 <script>
 import SingleCard from './SingleCard.vue';
+import ResultMessage from './ResultMessage.vue';
 import { store } from '../store';
 
 
 export default {
     name: 'CardsList',
     components: {
-        SingleCard
+        SingleCard,
+        ResultMessage,
+
     },
     data() {
         return {
@@ -19,6 +22,9 @@ export default {
 
 <template>
     <section class="container">
+        <div>
+            <ResultMessage />
+        </div>
         <div class="row">
             <div v-for="(card, i) in store.cardsList" :key="i" class="col">
                 <SingleCard :info="card" />
@@ -32,15 +38,15 @@ export default {
 
 .container {
     background-color: white;
-    // min-height: 300px;
-    // min-width: 300px;
     max-width: 80%;
+    display: flexbox;
     margin: 0 auto;
     padding: 1.5rem;
 
+
     .row {
         @include center (wrap);
-        padding: 1rem;
+        justify-content: space-between;
     }
 }
 </style>

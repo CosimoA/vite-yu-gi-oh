@@ -20,7 +20,7 @@ export default {
 <template>
     <section class="container">
         <div class="row">
-            <div v-for="card, i in store.cardsList" :key="i" class="col">
+            <div v-for="(card, i) in store.cardsList" :key="i" class="col">
                 <SingleCard :info="card" />
             </div>
         </div>

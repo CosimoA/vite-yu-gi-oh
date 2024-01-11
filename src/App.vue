@@ -26,17 +26,17 @@ export default {
         .then((arr => {
           store.cardsList = arr.data.data;
           console.log(arr.data.data);
-        }));
-      // .catch((err) => {
-      // console.log("Error", err);
-      // });
+        }))
+        .catch((err) => {
+          console.log("Error", err);
+        })
     }
   },
 
   created() {
     this.getCardsInfo();
   }
-}
+};
 
 
 

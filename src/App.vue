@@ -5,6 +5,9 @@ import axios from 'axios';
 import AppHeader from './components/AppHeader.vue';
 import AppSearch from './components/AppSearch.vue';
 import CardsList from './components/CardsList.vue';
+import LoadingSpinner from './components/LoadingSpinner.vue';
+
+
 // importazione store API
 import { store } from './store';
 
@@ -13,6 +16,8 @@ export default {
     AppHeader,
     AppSearch,
     CardsList,
+    LoadingSpinner,
+
   },
 
   data() {
@@ -34,7 +39,8 @@ export default {
         .get(myUrl)
         .then((arr => {
           store.cardsList = arr.data.data;
-          console.log(arr.data.data);
+          store.loading = false;
+          // console.log(arr.data.data);
         }))
         .catch((err) => {
           console.log("Error", err);
@@ -62,11 +68,17 @@ export default {
 </script>
 
 <template>
-  <AppHeader message="Yu-Gi-Oh! Api" />
-  <main>
-    <AppSearch @filter="getCardsInfo" />
-    <CardsList />
-  </main>
+  <section v-if="!store.loading">
+    <AppHeader message="Yu-Gi-Oh! Api" />
+    <main>
+      <AppSearch @filter="getCardsInfo" />
+      <CardsList />
+    </main>
+  </section>
+  <!-- LOADER -->
+  <section v-else>
+    <LoadingSpinner />
+  </section>
 </template>
 
 <style lang="scss">

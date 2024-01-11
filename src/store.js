@@ -10,9 +10,8 @@ export const store = reactive({
     archetypes: [],
 
     // VARIABLES
-    num: 50,
+    num: 1000,
     offset: 0,
     searchArchetype: "",
-    // loading: true,
-
+    loading: true,
 });

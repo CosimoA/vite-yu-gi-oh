@@ -1,7 +1,8 @@
 <script>
+import { store } from '../store';
 import SingleCard from './SingleCard.vue';
 import ResultMessage from './ResultMessage.vue';
-import { store } from '../store';
+
 
 
 export default {
@@ -9,7 +10,6 @@ export default {
     components: {
         SingleCard,
         ResultMessage,
-
     },
     data() {
         return {
@@ -30,6 +30,7 @@ export default {
                 <SingleCard :info="card" />
             </div>
         </div>
+        <!-- LOADER -->
     </section>
 </template>
 
@@ -46,7 +47,6 @@ export default {
 
     .row {
         @include center (wrap);
-        justify-content: space-between;
     }
 }
 </style>

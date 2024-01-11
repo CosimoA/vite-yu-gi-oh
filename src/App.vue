@@ -40,13 +40,13 @@ export default {
           console.log("Error", err);
         })
     },
+
     // Ottengo Lista Archetipi
     getArchetypesList() {
       axios
         .get(store.archetypesURL)
         .then((arr) => {
           store.archetypes = arr.data
-          // console.log("Array di Archetypi:" + arr.data);
         })
         .catch((err) => {
           console.log("Error", err);

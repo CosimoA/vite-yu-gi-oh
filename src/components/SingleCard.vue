@@ -11,7 +11,7 @@ export default {
 <template>
     <div class="card">
 
-        <img :src="info.card_images.image_url" :alt="info.name">
+        <img :src="info.card_images[0].image_url" :alt="info.name">
         <div class="categoria">
             <h3>{{ info.name }}</h3>
             <span>{{ info.archetype }}</span>
@@ -35,6 +35,8 @@ export default {
 
     .categoria {
         min-height: 100px;
+        max-width: 230px;
+        padding: 0 1rem;
 
         h3 {
             color: white;

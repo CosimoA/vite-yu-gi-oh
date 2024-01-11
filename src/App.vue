@@ -3,6 +3,7 @@
 import axios from 'axios';
 // importazione componenti figli
 import AppHeader from './components/AppHeader.vue';
+import AppSearch from './components/AppSearch.vue';
 import CardsList from './components/CardsList.vue';
 // importazione store API
 import { store } from './store';
@@ -10,6 +11,7 @@ import { store } from './store';
 export default {
   components: {
     AppHeader,
+    AppSearch,
     CardsList,
   },
 
@@ -45,8 +47,8 @@ export default {
 <template>
   <AppHeader message="Yu-Gi-Oh! Api" />
   <main>
+    <AppSearch />
     <CardsList />
-
   </main>
 </template>
 

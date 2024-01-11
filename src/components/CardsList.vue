@@ -32,11 +32,11 @@ export default {
 
 .container {
     background-color: white;
-    min-height: 300px;
-    min-width: 300px;
+    // min-height: 300px;
+    // min-width: 300px;
     max-width: 80%;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 1.5rem;
 
     .row {
         @include center (wrap);

@@ -24,4 +24,8 @@ export default {
 
 <style lang="scss" scoped>
 @use '../styles/partials/mixins.scss' as *;
+
+div {
+    padding: 1.5rem 10%;
+}
 </style>

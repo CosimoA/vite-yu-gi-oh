@@ -22,13 +22,32 @@ export default {
   },
 
   methods: {
+    // Ottieni Lista Info Carte
     getCardsInfo() {
+      let myUrl = store.apiURL += `?num=${store.num}&offset=${store.offset}`
+
+      if (store.searchArchetype !== "") {
+        myUrl += `&archetype=${store.searchArchetype}`
+      }
+
       axios
-        .get(store.apiURL)
+        .get(myUrl)
         .then((arr => {
           store.cardsList = arr.data.data;
           console.log(arr.data.data);
         }))
+        .catch((err) => {
+          console.log("Error", err);
+        })
+    },
+    // Ottengo Lista Archetipi
+    getArchetypesList() {
+      axios
+        .get(store.archetypesURL)
+        .then((arr) => {
+          store.archetypes = arr.data
+          // console.log("Array di Archetypi:" + arr.data);
+        })
         .catch((err) => {
           console.log("Error", err);
         })
@@ -37,17 +56,15 @@ export default {
 
   created() {
     this.getCardsInfo();
+    this.getArchetypesList();
   }
 };
-
-
-
 </script>
 
 <template>
   <AppHeader message="Yu-Gi-Oh! Api" />
   <main>
-    <AppSearch />
+    <AppSearch @filter="getCardsInfo" />
     <CardsList />
   </main>
 </template>

@@ -30,7 +30,6 @@ export default {
                 <SingleCard :info="card" />
             </div>
         </div>
-        <!-- LOADER -->
     </section>
 </template>
 
